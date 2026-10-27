@@ -2091,3 +2091,83 @@ pre, code {
     .session-tab { min-width: 96px; }
     .tab-close { opacity: .8; }
 }
+
+/* Desktop workspace: retain the existing live session controls. */
+.workspace-brand, .workspace-section-label { display: none; }
+@media (min-width: 769px) {
+    #app {
+        display: grid;
+        grid-template-columns: 252px minmax(0, 1fr);
+        grid-template-rows: minmax(0, 1fr);
+    }
+    .session-tabs-bar {
+        min-height: 0;
+        height: 100%;
+        padding: 20px 12px 12px;
+        border-bottom: 0;
+        border-right: 1px solid var(--border);
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 0;
+    }
+    .workspace-brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 4px 8px 28px;
+    }
+    .workspace-brand strong { display: block; font-size: 14px; }
+    .workspace-brand small {
+        display: block;
+        margin-top: 4px;
+        color: var(--text-secondary);
+        font-size: 10px;
+        letter-spacing: .12em;
+    }
+    .workspace-mark {
+        display: grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 10px;
+        background: var(--accent);
+        color: var(--bg-primary);
+        font-size: 20px;
+    }
+    .workspace-section-label {
+        display: block;
+        padding: 0 8px 10px;
+        color: var(--text-secondary);
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: .1em;
+    }
+    .tabs-section {
+        flex: 1;
+        min-height: 0;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+        align-items: stretch;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+    .tabs-container {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+    }
+    .session-tab { width: 100%; max-width: none; }
+    .session-tab.active { box-shadow: inset 3px 0 var(--accent); }
+    .tab-new { width: 100%; margin: 0 0 10px; }
+    .tab-actions {
+        padding-top: 12px;
+        margin-top: 12px;
+        border-top: 1px solid var(--border);
+    }
+    .tab-settings { margin-left: 0; }
+    .main { min-width: 0; }
+}
